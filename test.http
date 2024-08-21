@@ -1,0 +1,32 @@
+### Home
+GET http://localhost:8787/
+
+
+### User 一覧取得
+GET http://localhost:8787/user/
+
+### User 登録
+POST http://localhost:8787/user/
+Content-Type: application/json
+
+{
+    "name": "test",
+    "kana": "テスト",
+    "email": "sampleaaa@example.com"
+}
+
+### User 詳細取得
+GET http://localhost:8787/user/1/
+
+### User 編集取得
+PUT http://localhost:8787/user/2/
+Content-Type: application/json
+
+{
+    "name": "test_updated",
+    "kana": "テストアップデート",
+    "email": "sample_updated@example.com"
+}
+
+### User 削除
+DELETE http://localhost:8787/user/1/
