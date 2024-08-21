@@ -46,7 +46,7 @@ database_id="xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx"
 
 ### 3.Prisma Clientの生成
 ```
-npx prisma genarate
+npx prisma generate
 ```
 
 # 環境の起動
@@ -79,6 +79,12 @@ npx wrangler d1 migrations apply <DATABASE_NAME> --local
 npx wrangler d1 migrations apply prisma-demo-db --remote
 ```
 本番環境の変更の場合は`local`を`remote`とする
+
+### 5.clientの更新
+clientを更新しないと新たに追加・削除した項目がfetchできないので注意
+```
+npx prisma generate
+```
 
 ## seeding
 `prisma/seed.ts`の更新を行いその後以下のコマンドを入力する。
