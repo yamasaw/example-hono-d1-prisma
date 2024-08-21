@@ -8,7 +8,9 @@
   "dependencies": {
     "@prisma/adapter-d1": "^5.18.0",
     "@prisma/client": "^5.18.0",
-    "hono": "^4.5.6"
+    "@types/minimist": "^1.2.5",
+    "hono": "^4.5.6",
+    "minimist": "^1.2.8"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240529.0",

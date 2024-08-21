@@ -98,7 +98,7 @@ d1はwranglerを利用してデータを注入する事ができるこのseed.ts
 
 ### 2.seed実行
 ```
-npx ts-node prisma/seed.ts
+npx ts-node prisma/seed.ts --db <DATABASE_NAME> --env local
 ```
 
 # deploy
