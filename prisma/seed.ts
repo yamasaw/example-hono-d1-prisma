@@ -7,8 +7,9 @@ const ENVIROMENT = 'local';
 
 const users = [
   {
-    email: 'sample1@example.com',
-    name: 'sample1'
+    email: 'sample5@example.com',
+    name: '名前',
+    kana: 'かなs',
   },
 ]
 
@@ -26,7 +27,7 @@ async function execSeed(table: string, datas: {[key: string]: string}[])
       const values = data;
       const columnStr = `(`
         + columns.map(column => {
-          return `'\"${column}"\'`
+          return `\'${column}\'`
         }).join(',')
         + `)`
       const valueStr = `VALUES  (`
