@@ -100,3 +100,15 @@ d1はwranglerを利用してデータを注入する事ができるこのseed.ts
 ```
 npx ts-node prisma/seed.ts
 ```
+
+# deploy
+## Databaseの更新
+```
+npx wrangler d1 migrations apply <DATABASE_NAME> --remote
+```
+
+## アプリケーションのデプロイ
+wranglerのコマンド入力するだけで済む
+```
+pnpm deploy
+```
