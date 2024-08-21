@@ -8,15 +8,32 @@ type Bindings = {
 }
 const app = new Hono<{Bindings: Bindings}>()
 
+const client = function () {
+  let  client: PrismaClient
+  return function (adapter?: PrismaD1) {
+    if (!client) {
+      if (!adapter) {
+        throw new Error('Adapter is not provided')
+      }
+      client = new PrismaClient({ adapter })
+    }
+    return client
+  }
+}()
+
+// ミドルウェアでDBをバインド
+app.use('*', async (c, next) => {
+  const adapter = new PrismaD1(c.env.DB)
+  client(adapter)
+  await next()
+})
+
 app.get('/', async (c) => {
   return c.json({ message: 'Hello World' })
 })
 
 app.get('/user/', async (c) => {
-  const adapter = new PrismaD1(c.env.DB)
-  const prisma = new PrismaClient({ adapter })
-
-  const users = await prisma.user.findMany()
+  const users = await client().user.findMany()
   return c.json(users)
 })
 
