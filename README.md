@@ -44,7 +44,12 @@ database_name="<DATABASE_NAME>"
 database_id="xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx"
 ```
 
-### 3.Prisma Clientの生成
+### 3.migrationの適用
+```
+npx wrangler d1 migrations apply <DATABASE_NAME> --local
+```
+
+### 4.Prisma Clientの生成
 ```
 npx prisma generate
 ```
@@ -75,8 +80,6 @@ npx prisma migrate diff --from-local-d1 --to-schema-datamodel ./prisma/schema.pr
 ### 4.migrationを適用する
 ```
 npx wrangler d1 migrations apply <DATABASE_NAME> --local
-
-npx wrangler d1 migrations apply prisma-demo-db --remote
 ```
 本番環境の変更の場合は`local`を`remote`とする
 
