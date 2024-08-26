@@ -69,7 +69,7 @@ pnpm run dev
 npx wrangler d1 migrations create prisma-demo-db <MIGRATION_FILE_NAME>
 ```
 
-### 3.schemaの変更差分を
+### 3.schemaの変更差分をmigrationファイルに反映する
 初回構築ときにはオプション`--from-empty`を指定するが2回目現状とスキーマの差分よりmigrationファイルを生成するため`--from-local-d1`の指定を行う
 
 https://www.prisma.io/docs/orm/overview/databases/cloudflare-d1#evolve-your-schema-with-further-migrations
