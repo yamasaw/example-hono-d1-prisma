@@ -1,7 +1,7 @@
 import { Hono } from 'hono'
 import { client } from "@/utils/prisma"
-import index from "@/routes/index"
-import user from "@/routes/user"
+import index from "@/home/route"
+import user from "@/user/route"
 
 type Bindings = {
   DB: D1Database
