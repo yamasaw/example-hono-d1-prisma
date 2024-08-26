@@ -1,25 +1,11 @@
 import { Hono } from 'hono'
-import { PrismaClient } from '@prisma/client'
 import { PrismaD1 } from '@prisma/adapter-d1'
-
+import { client } from "@/utils/prisma"
 
 type Bindings = {
   DB: D1Database
 }
 const app = new Hono<{Bindings: Bindings}>()
-
-const client = function () {
-  let  client: PrismaClient
-  return function (adapter?: PrismaD1) {
-    if (!client) {
-      if (!adapter) {
-        throw new Error('Adapter is not provided')
-      }
-      client = new PrismaClient({ adapter })
-    }
-    return client
-  }
-}()
 
 // ミドルウェアでDBをバインド
 app.use('*', async (c, next) => {
