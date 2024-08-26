@@ -2,7 +2,7 @@
   "name": "hono-d1-prisma",
   "type": "module",
   "scripts": {
-    "dev": "wrangler dev src/index.ts",
+    "dev": "wrangler dev",
     "deploy": "wrangler deploy --minify src/index.ts"
   },
   "dependencies": {
