@@ -1,6 +1,6 @@
 import { Hono } from 'hono'
 import { client } from "@/utils/prisma"
-import index from "@/home/route"
+import home from "@/home/route"
 import user from "@/user/route"
 
 type Bindings = {
@@ -14,8 +14,10 @@ app.use('*', async (c, next) => {
   await next()
 })
 
-app.route('/', index)
+app.route('/', home)
 app.route('user/', user)
-
+app.notFound((c) => {
+  return c.json({ message: 'Not Found' }, 404)
+})
 
 export default app
