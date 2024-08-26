@@ -20,6 +20,9 @@ dependencies:
   minimist:
     specifier: ^1.2.8
     version: 1.2.8
+  zod:
+    specifier: ^3.23.8
+    version: 3.23.8
 
 devDependencies:
   '@cloudflare/workers-types':
@@ -1013,4 +1016,3 @@ packages:
 
   /zod@3.23.8:
     resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
-    dev: true
