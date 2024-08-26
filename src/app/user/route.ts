@@ -1,12 +1,14 @@
 import { Hono } from "hono"
 import { client } from "@/utils/prisma"
+import { validate } from "@/app/user/validate"
+
 
 const app = new Hono()
 .get('/', async (c) => {
   const users = await client().user.findMany()
   return c.json(users)
 })
-.post('/', async (c) => {
+.post('/', validate, async (c) => {
   const data = await c.req.json()
   const user = await client().user.create({
     data: data
@@ -22,7 +24,7 @@ const app = new Hono()
   })
   return c.json(user)
 })
-.put('/:id/', async (c) => {
+.put('/:id/', validate, async (c) => {
   const data = await c.req.json()
   const user = await client().user.update({
     where: {
