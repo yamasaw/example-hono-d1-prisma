@@ -1,4 +1,4 @@
-import { validator } from 'hono/validator'
+import { zValidator } from '@hono/zod-validator'
 import { z } from 'zod'
 
 export const UserSchema = z.object({
@@ -7,15 +7,4 @@ export const UserSchema = z.object({
   kana: z.string(),
 })
 
-export const validate = validator('json', async (value, c) => {
-  const parsed = UserSchema.safeParse(value)
-
-  if (!parsed.success) {
-    const messages: string[] = []
-    parsed.error?.errors.forEach((error) => {
-      messages.push(error.message)
-    })
-    return c.json(messages, 400)
-  }
-  return parsed.data
-})
+export const validate = zValidator('json', UserSchema)

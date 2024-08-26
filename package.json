@@ -6,6 +6,7 @@
     "deploy": "wrangler deploy --minify src/index.ts"
   },
   "dependencies": {
+    "@hono/zod-validator": "^0.2.2",
     "@prisma/adapter-d1": "^5.18.0",
     "@prisma/client": "^5.18.0",
     "@types/minimist": "^1.2.5",
