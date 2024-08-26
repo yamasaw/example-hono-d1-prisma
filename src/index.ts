@@ -1,5 +1,4 @@
 import { Hono } from 'hono'
-import { PrismaD1 } from '@prisma/adapter-d1'
 import { client } from "@/utils/prisma"
 
 type Bindings = {
@@ -9,8 +8,7 @@ const app = new Hono<{Bindings: Bindings}>()
 
 // ミドルウェアでDBをバインド
 app.use('*', async (c, next) => {
-  const adapter = new PrismaD1(c.env.DB)
-  client(adapter)
+  client(c.env.DB)
   await next()
 })
 
